@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="address2" class="com.olivia.springlearning.beans.autowire.Address"
+          p:city="Beijing" p:street="wudaokou"></bean>
+    <!--<bean id="address3" class="com.olivia.springlearning.beans.autowire.Address"-->
+          <!--p:city="Beijing" p:street="houhai"></bean>-->
+    <!--bean配置的继承：使用bean的parent属性指定是继承哪一个bean的配置-->
+    <bean id="address3" parent="address4" p:street="houhaidd" p:city="Shanhai"></bean>
+
+    <!--抽象bean：abstract属性。作为模板，就是被用来继承的，不能被实例化，否则报错-->
+    <bean id="address4" class="com.olivia.springlearning.beans.autowire.Address"
+          p:city="Beijing43" p:street="wudaokou" abstract="true"></bean>
+
+    <bean id="person8" class="com.olivia.springlearning.beans.autowire.Person"
+    p:name="Teddy" p:address-ref="address3"></bean>
+
+    <bean id="car4" class="com.olivia.springlearning.beans.autowire.Car"
+    p:brand="baoma" p:price="500000"></bean>
+
+    <!--要求在配置Person时 必须有一个关联的car 换句话说person这个bean依赖于Car这个bean-->
+    <bean id="person9" class="com.olivia.springlearning.beans.autowire.Person"
+          p:name="Teddy" p:address-ref="address3" depends-on="car4"></bean>
+
+    <!--但是这里输出还是null why？？？-->
+</beans>
