@@ -1,15 +1,25 @@
-package com.olivia.springlearning.beans.autowire;
+package com.olivia.springlearning.beans.spel;
 
 public class Car {
     private String brand;
     private double price;
+    private double tyrePerimeter;//轮胎周长
 
     @Override
     public String toString() {
         return "Car{" +
                 "brand='" + brand + '\'' +
                 ", price=" + price +
+                ", tyrePerimeter=" + tyrePerimeter +
                 '}';
+    }
+
+    public double getTyrePerimeter() {
+        return tyrePerimeter;
+    }
+
+    public void setTyrePerimeter(double tyrePerimeter) {
+        this.tyrePerimeter = tyrePerimeter;
     }
 
     public Car() {

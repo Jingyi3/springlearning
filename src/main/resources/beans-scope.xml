@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+    <!--使用bean的scope属性来配置bean的作用域
+        singletion：默认值，容器初始化时候创建bean实例，在容器生命周期内之创建一个实例
+        prototype：原型的，容器初始化时候不会创建bean实例，而是在每次请求的时候都创建一个新的Bean实例，并返回-->
+    <bean id="car" class="com.olivia.springlearning.beans.autowire.Car"
+        scope="prototype">
+        <property name="brand" value="baochijie"></property>
+        <property name="price" value="300000"></property>
+    </bean>
+
+</beans>

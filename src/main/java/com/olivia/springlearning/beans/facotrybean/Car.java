@@ -1,4 +1,4 @@
-package com.olivia.springlearning.beans.autowire;
+package com.olivia.springlearning.beans.facotrybean;
 
 public class Car {
     private String brand;
@@ -10,6 +10,11 @@ public class Car {
                 "brand='" + brand + '\'' +
                 ", price=" + price +
                 '}';
+    }
+
+    public Car(String brand, double price) {
+        this.brand = brand;
+        this.price = price;
     }
 
     public Car() {
